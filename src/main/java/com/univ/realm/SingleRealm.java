@@ -8,7 +8,7 @@ import org.apache.shiro.realm.Realm;
  * 16/6/16 14:00
  * 自定义realm实现。一个realm就是一个数据源,即是说,用户名密码需要在这里(就像数据库中存的用户名密码)
  * 自定义realm 的步骤:
- * 1. 实现Realm接口;
+ * 1. 实现Realm接口,一般继承AuthorizingRealm即可,其继承了AuthenticatingRealm类;
  * 2. 在ini文件中指定此realm为securityManager需要用的realm
  */
 public class SingleRealm implements Realm{
