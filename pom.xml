@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.univ</groupId>
     <artifactId>shiro</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>shiro Maven Webapp</name>
     <url>http://maven.apache.org</url>
@@ -19,14 +19,13 @@
 
 
         <!--shiro-core-->
-        <!-- http://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
             <version>1.2.4</version>
         </dependency>
 
-        <!-- http://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+        <!--org.slf4j-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>

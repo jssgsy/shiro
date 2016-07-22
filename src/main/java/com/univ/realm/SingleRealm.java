@@ -15,7 +15,7 @@ public class SingleRealm implements Realm{
 
 
     /**
-     * 返回此realm的名字,自定义
+     * 返回此realm的名字,自定义,每个realm的名字必须唯一
      * @return
      */
     @Override
@@ -23,21 +23,33 @@ public class SingleRealm implements Realm{
         return "univSingleRealm";
     }
 
+    /**
+     * 判断是否接受此token类型的认证,返回false则不会调用下面的getAuthenticationInfo方法
+     * @param token
+     * @return
+     */
     @Override
     public boolean supports(AuthenticationToken token) {
+        //如果传进来的token是UsernamePasswordToken或者其子类型,则接受认证,认证在getAuthenticationInfo方法中。
         return token instanceof UsernamePasswordToken;
     }
 
+    /**
+     * 认证和授权应该都在这里进行
+     */
     @Override
     public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String username = (String) token.getPrincipal();
 
         /**
          * 注意这里的写法,不能直接写成String password = (String)token.getCredentials();
-         * password需要用char[]类型
+         * password在UsernamePasswordToken中是char[]类型
          */
         String password = new String((char[])token.getCredentials());
 
+        /**
+         * 这里是直接将用户密码硬编码在这里,如果是存放在数据库中,则需要从数据库取出,然后比较
+         */
         if (!"univ".equals(username)) {
             throw new UnknownAccountException("用户名错误");
         }

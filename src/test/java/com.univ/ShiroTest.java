@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
  * created by Univ
  * 16/5/22 18:56
  */
-public class ShiroTest {
 
-    public static void main(String[] args) {
-        System.out.println("[univ]:------ " );
-    }
+/**
+ * 目前只是完成了简单认证,还没有授权
+ */
+public class ShiroTest {
 
     @Test
     public void test(){
@@ -37,6 +37,7 @@ public class ShiroTest {
         try {
             //4、登录，即身份验证
             subject.login(token);
+            System.out.println("........登录成功........");
         } catch (AuthenticationException e) {
             //5、身份验证失败
         }
