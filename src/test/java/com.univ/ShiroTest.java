@@ -38,6 +38,11 @@ public class ShiroTest {
             //4、登录，即身份验证
             subject.login(token);
             System.out.println("........登录成功........");
+            if (subject.hasRole("admin")) {
+                System.out.println("当前用户具有admin角色");
+            }else{
+                System.out.println("当前用户不具有admin角色");
+            }
         } catch (AuthenticationException e) {
             //5、身份验证失败
         }

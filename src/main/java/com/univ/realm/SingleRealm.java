@@ -6,10 +6,12 @@ import org.apache.shiro.realm.Realm;
 /**
  * created by Univ
  * 16/6/16 14:00
- * 自定义realm实现。一个realm就是一个数据源,即是说,用户名密码需要在这里(就像数据库中存的用户名密码)
- * 自定义realm 的步骤:
- * 1. 实现Realm接口,一般继承AuthorizingRealm即可,其继承了AuthenticatingRealm类;
- * 2. 在ini文件中指定此realm为securityManager需要用的realm
+ * 1. 自定义realm实现。一个realm就是一个数据源,即是说,用户名密码需要在这里(就像数据库中存的用户名密码)
+ * 2. 自定义realm 的步骤:
+     * 1. 实现Realm接口,一般继承AuthorizingRealm即可,其继承了AuthenticatingRealm类;
+     * 2. 在ini文件中指定此realm为securityManager需要用的realm
+ * 3. 自定义的Realm如果直接实现Realm接口,则不提供授权操作。
+ *      参考ModularRealmAuthorizer.java中的hasRole方法
  */
 public class SingleRealm implements Realm{
 
@@ -35,7 +37,7 @@ public class SingleRealm implements Realm{
     }
 
     /**
-     * 认证和授权应该都在这里进行
+     * 认证在这里进行(直接实现Realm接口的Realm没有授权功能)
      */
     @Override
     public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
