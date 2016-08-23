@@ -18,14 +18,21 @@
         </dependency>
 
 
-        <!--shiro-core-->
+        <!--shiro-core,默认以slf4j做日志,且还依赖于commons-beanutils包-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
             <version>1.2.4</version>
         </dependency>
 
-        <!--org.slf4j-->
+        <!-- 不可少,commons-beanutils依赖于此包 -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <!--slf4j-log4j12-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -39,12 +46,7 @@
             <version>1.2.17</version>
         </dependency>
 
-        <!-- 下面的日志包不可少 -->
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
-        </dependency>
+
 
     </dependencies>
     <build>
