@@ -41,24 +41,7 @@ public class SingleRealm implements Realm{
      */
     @Override
     public AuthenticationInfo getAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String username = (String) token.getPrincipal();
-
-        /**
-         * 注意这里的写法,不能直接写成String password = (String)token.getCredentials();
-         * password在UsernamePasswordToken中是char[]类型
-         */
-        String password = new String((char[])token.getCredentials());
-
-        /**
-         * 这里是直接将用户密码硬编码在这里,如果是存放在数据库中,则需要从数据库取出,然后比较
-         */
-        if (!"univ".equals(username)) {
-            throw new UnknownAccountException("用户名错误");
-        }
-        if (!"123".equals(password)) {
-            throw new IncorrectCredentialsException("密码错误");
-        }
-
-        return new SimpleAuthenticationInfo(username, password,getName());
+        //实例代码可参看RealmDemo1的doGetAuthenticationInfo方法
+        return null;
     }
 }
