@@ -32,7 +32,7 @@
             <version>1.2</version>
         </dependency>
 
-        <!--slf4j-log4j12-->
+        <!--slf4j-log4j12,注意,此jar并不依赖于log4j,需要显示导入log4j的jar包-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
