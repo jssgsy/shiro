@@ -23,6 +23,13 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
             <version>1.2.4</version>
+            <!--这里可排除依赖-->
+            <!--<exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>-->
         </dependency>
 
         <!-- 不可少,commons-beanutils依赖于此包 -->
@@ -32,7 +39,9 @@
             <version>1.2</version>
         </dependency>
 
-        <!--slf4j-log4j12,这里依赖log4j的jar,当然也可以自己显示添加log4j的jar(如下)-->
+        <!--slf4j-log4j12,这里依赖log4j和slf4j-api
+            所以如果使用log4j配合slf4j使用,可只需要导入此一个依赖即可。
+            当然也可以自己显示添加log4j和slf4j-api的jar-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
